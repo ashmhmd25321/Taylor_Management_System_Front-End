@@ -1,3 +1,16 @@
 .space-buttons {
     flex: 1 1 auto;
 }
+
+.example-container {
+    width: 400px;
+    height: 200px;
+    margin: 10px;
+    border: 1px solid #555;
+  }
+
+.a {
+    text-decoration: none;
+    color:rgb(214, 253, 41);
+    cursor: pointer
+    }

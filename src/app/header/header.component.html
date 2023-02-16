@@ -1,4 +1,3 @@
-
 <mat-toolbar color="primary">
     <span>
         TAYLOR MANAGEMENT APPLICATION
@@ -6,38 +5,20 @@
 
     <span class="space-buttons"></span>
 
-    <button *ngIf="! isLoggedIn()" mat-raised-button color="primary" routerLink="/login">Login</button>
+    <button *ngIf="! isLoggedIn()" mat-raised-button color="warn" routerLink="/register"
+        style="margin-right: 10px;">Register<mat-icon>add_circle</mat-icon></button>
+    <button *ngIf="! isLoggedIn()" mat-raised-button color="primary"
+        routerLink="/login">Login<mat-icon>login</mat-icon></button>
     <button *ngIf="isLoggedIn()" mat-raised-button color="warn" (click)="logout()">Logout</button>
 </mat-toolbar>
 
-<!-- <nav class="navbar navbar-expand-lg bg-primary navbar-text">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">TAYLOR MANAGEMENT SYSTEM</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" routerLink="/home">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" routerLink="/admin"
-                    *ngIf="userService.roleMatch(['ADMIN'])">Admin Dashboard</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" routerLink="/user"
-                    *ngIf="userService.roleMatch(['USER'])">User Dashboard</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" routerLink="/taylor"
-                    *ngIf="userService.roleMatch(['TAYLOR'])">Taylor Dashboard</a>
-                </li>
-            </ul>
-            <button *ngIf="! isLoggedIn()" type="button" class="btn btn-success" >Login</button>
-            <button  type="button" class="btn btn-danger" >Logout</button>
-
-    </div>
-    </div>
-</nav> -->
+<mat-toolbar color="primary" *ngIf="isLoggedIn()" style="margin-top: 2px;">
+    <a class="a" color="primary" routerLink="/" style="margin-right: 10px;">Home</a>
+    <span *ngIf="isAdmin()" style="margin-right: 10px;"> | </span>
+    <a class="a" *ngIf="isAdmin()" color="primary" routerLink="/admin" style="margin-right: 10px;">Admin
+        Page</a>
+    <span *ngIf="isAdmin()" style="margin-right: 10px;"> | </span>
+    <a class="a" *ngIf="isAdmin()" color="primary" routerLink="/addNewProduct">Add New Product</a>
+    <span *ngIf="isAdmin()" style="margin-right: 10px; margin-left: 10px;"> | </span>
+    <a class="a" *ngIf="isAdmin()" color="primary" routerLink="/showProductDetails">Show Product Details</a>
+</mat-toolbar>

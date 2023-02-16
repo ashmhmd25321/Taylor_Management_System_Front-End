@@ -1,0 +1,60 @@
+<div class="container mt-5">
+    <div class="card" style="padding: 20px;">
+
+        <form (ngSubmit)="addUser()">
+
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Username</mat-label>
+                <input required [(ngModel)]="user.userName" type="text" name="userName" id="userName" matInput
+                    placeholder="Enter Username">
+                <mat-icon matSuffix>account_circle</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>First Name</mat-label>
+                <input required [(ngModel)]="user.firstName" type="text" name="firstName" id="firstName" matInput
+                    placeholder="Enter First Name">
+                <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Last Name</mat-label>
+                <input required [(ngModel)]="user.lastName" type="text" name="lastName" id="lastName" matInput
+                    placeholder="Enter Last Name">
+                <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Password</mat-label>
+                <input required [(ngModel)]="user.password" type="password" name="password" id="password" matInput
+                    placeholder="Enter Password">
+                <mat-icon matSuffix>lock</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Email</mat-label>
+                <input required [(ngModel)]="user.email" type="email" name="email" id="email" matInput
+                    placeholder="Enter Email">
+                <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Mobile Number</mat-label>
+                <input required [(ngModel)]="user.mobileNumber" type="tel" name="mobileNumber" id="mobileNumber"
+                    matInput placeholder="Enter Mobile Number">
+                <mat-icon matSuffix>phone</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Address</mat-label>
+                <input required [(ngModel)]="user.address" type="text" name="address" id="address" matInput
+                    placeholder="Enter Address">
+                <mat-icon matSuffix>receipt</mat-icon>
+            </mat-form-field>
+
+            <button type="submit" mat-raised-button color="accent" class="w-100">Register</button>
+            <button mat-raised-button color="primary" type="reset" class="w-100"
+                style="margin-top: 10px;">Cancel</button>
+        </form>
+    </div>
+</div>

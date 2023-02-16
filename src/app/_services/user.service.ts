@@ -21,6 +21,10 @@ export class UserService {
     return this.httpclient.post(this.PATH_OF_API + "/authenticate", loginData, { headers: this.requestHeader })
   }
 
+  public registerUser(user:any) {
+    return this.httpclient.post(`${this.PATH_OF_API}/registerUser`, user, { headers: this.requestHeader });
+  }
+
   public forUser() {
     return this.httpclient.get(this.PATH_OF_API + '/userPage', {
       responseType: 'text',

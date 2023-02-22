@@ -2,7 +2,7 @@ import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest
 import { Router } from "@angular/router";
 import { Observable, throwError } from "rxjs";
 import { UserAuthService } from "../_services/user-auth.service";
-import {catchError} from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import { Injectable } from "@angular/core";
 
 @Injectable()
@@ -21,7 +21,9 @@ export class AuthInterceptor implements HttpInterceptor {
 
         const token = this.userAuthService.getToken();
 
-        req = this.addToken(req, token);
+        if (token) {
+            req = this.addToken(req, token);
+        }
 
         return next.handle(req).pipe(
             catchError(

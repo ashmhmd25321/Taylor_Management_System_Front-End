@@ -1,5 +1,47 @@
 <div class="container mt-5">
-    <div class="card text-center" style="padding: 20px;">
-     <h1>This is Home Page</h1>
+
+    <div class="text-center">
+        <mat-form-field class="w-50" appearance="outline">
+            <mat-label>Search Products</mat-label>
+            <input #searchKeyword (keyup)="searchByKeyword(searchKeyword.value)" matInput placeholder="Search Any Product" name="searchKey" id="searchKey">
+            <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
     </div>
- </div>
+
+
+    <mat-grid-list cols="4" rowHeight="2:3" gutterSize="5">
+        <mat-grid-tile *ngFor="let p of productDetails">
+            <div class="row p-5">
+                <div class="image-container">
+                    <img class="home-page-product" [src]="p.productImages[0].url" alt="">
+                </div>
+                <div>
+                    <p style="margin-top: 3px;">
+                        <b>{{p.productName}}</b> &nbsp;
+                        <b
+                            style="text-transform: uppercase; color: brown; text-decoration: underline overline;">{{p.productStatus}}</b>
+                    </p>
+                </div>
+                <div>
+                    <p
+                        style="white-space: inherit; text-overflow: ellipsis; height: 40px; width: 288; overflow: hidden;">
+                        {{p.productDescription}}</p>
+                </div>
+                <div>
+                    <p><b>Price: {{p.discountedPrice}}$ </b> &nbsp; <b style="text-decoration: line-through;">
+                            {{p.productPrice}}$</b></p>
+                </div>
+                <div>
+                    <button mat-raised-button color="accent" type="button"
+                        (click)="showProductDetails(p.productId)">View
+                        Details</button>
+                </div>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+    <div class="text-center mt-5" style="padding-bottom: 80px;" *ngIf="showLoadButton">
+        <button mat-raised-button color="primary" type="button" (click)="loadMoreProduct()"> Load More
+            <mat-icon>arrow_downward</mat-icon></button>
+    </div>
+</div>

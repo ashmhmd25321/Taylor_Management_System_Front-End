@@ -17,9 +17,15 @@ import { ProductService } from '../_services/product.service';
 })
 export class ShowProductDetailsComponent implements OnInit {
 
+  showLoadMoreProductButton = false;
+
+  showTable = false;
+
+  pageNumber: number = 0;
+
   productDetails: Product[] = [];
 
-  displayedColumns: string[] = ['ID', 'Product Name', 'Product Description', 'Category', 'Discounted Price', 'Actual Price', 'Product Status', 'Images', 'edit', 'delete'];
+  displayedColumns: string[] = ['ID', 'Product Name', 'description', 'Category', 'Discounted Price', 'Actual Price', 'Product Status', 'Actions'];
 
   constructor(private productService: ProductService,
     private snack: MatSnackBar,
@@ -32,19 +38,34 @@ export class ShowProductDetailsComponent implements OnInit {
   }
 
   public getAllProducts() {
-    this.productService.getAllProducts()
+    this.showTable = false;
+    this.productService.getAllProducts(this.pageNumber)
       .pipe(
         map((x: Product[], i) => x.map((product: Product) => this.imageProcessingService.createImages(product)))
       )
       .subscribe(
         (resp: Product[]) => {
           console.log(resp);
-          this.productDetails = resp;
+          if (resp.length == 8) {
+            this.showLoadMoreProductButton = true;
+          } else {
+            this.showLoadMoreProductButton = false;
+          }
+          resp.forEach(
+            product => this.productDetails.push(product)
+          );
+          this.showTable = true;
+          // this.productDetails = resp;
         },
         (error: HttpErrorResponse) => {
           console.log(error);
         }
       );
+  }
+
+  public loadMoreProducts() {
+    this.pageNumber = this.pageNumber + 1;
+    this.getAllProducts();
   }
 
   deleteProduct(productId: number) {
@@ -76,6 +97,6 @@ export class ShowProductDetailsComponent implements OnInit {
   editProductDetails(productId: number) {
     console.log(productId);
 
-    this.router.navigate(['/addNewProduct', {productId: productId}]);
+    this.router.navigate(['/addNewProduct', { productId: productId }]);
   }
 }

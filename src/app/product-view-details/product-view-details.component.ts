@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { Product } from '../_model/product.model';
+import { ProductService } from '../_services/product.service';
 
 @Component({
   selector: 'app-product-view-details',
@@ -13,7 +15,7 @@ export class ProductViewDetailsComponent implements OnInit {
 
   product!: Product;
 
-  constructor(private activateRoute: ActivatedRoute, private router: Router) { }
+  constructor(private activateRoute: ActivatedRoute, private router: Router, private productService: ProductService) { }
 
 
   ngOnInit(): void {
@@ -30,6 +32,18 @@ export class ProductViewDetailsComponent implements OnInit {
       isSingleProductCheckout: true,
       id: productId
     }]);
+  }
+
+  addToCart(productId: number) {
+    this.productService.addToCart(productId).subscribe(
+      (response) => {
+        console.log(response);
+        Swal.fire('Product added to Cart Successfully', 'Success');
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
 }

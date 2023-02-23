@@ -15,6 +15,7 @@ import { ProductService } from '../_services/product.service';
 export class BuyProductComponent implements OnInit {
 
   productDetails: Product[] = [];
+  isSingleProductCheckout: any = '';
 
   orderDetails: OrderDetails = {
     fullName: '',
@@ -28,6 +29,9 @@ export class BuyProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.productDetails = this.activatedRoute.snapshot.data['productDetails'];
+    this.isSingleProductCheckout = this.activatedRoute.snapshot.paramMap.get("isSingleProductCheckout");
+
+    
 
     this.productDetails.forEach(
       x => this.orderDetails.orderProductQuantities.push(
@@ -66,7 +70,7 @@ export class BuyProductComponent implements OnInit {
       return;
     }
 
-    this.productService.placeOrder(this.orderDetails).subscribe(
+    this.productService.placeOrder(this.orderDetails, this.isSingleProductCheckout).subscribe(
       (resp) => {
         console.log(resp);
         Swal.fire('Order placed Successfully. It will get delivered to you within 4-5 business days', 'success');

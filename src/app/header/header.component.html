@@ -14,6 +14,8 @@
 
 <mat-toolbar color="primary" *ngIf="isLoggedIn()" style="margin-top: 2px;">
     <a class="a" color="primary" routerLink="/" style="margin-right: 10px;">Home</a>
+    <span *ngIf="isUser()" style="margin-right: 10px;"> | </span>
+    <a class="a" *ngIf="isUser()" color="primary" routerLink="/cart" style="margin-right: 10px;">Cart</a>
     <span *ngIf="isAdmin()" style="margin-right: 10px;"> | </span>
     <a class="a" *ngIf="isAdmin()" color="primary" routerLink="/admin" style="margin-right: 10px;">Admin
         Page</a>

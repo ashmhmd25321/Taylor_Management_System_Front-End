@@ -31,9 +31,13 @@
                         style="text-decoration: line-through;">{{product.productPrice}}$</b>
                 </div>
                 <div class="mt-5">
-                    <button (click)="buyProduct(product.productId)" mat-raised-button color="warn" style="width: 200px;">
+                    <button (click)="buyProduct(product.productId)" mat-raised-button color="warn" style="width: 200px; margin-right: 5px;">
                         <mat-icon>sell</mat-icon>
                         Buy Now
+                    </button>
+                    <button (click)="addToCart(product.productId)" mat-raised-button color="accent" style="width: 200px;">
+                        <mat-icon>shopping_cart</mat-icon>
+                        Add to Cart
                     </button>
                 </div>
             </div>

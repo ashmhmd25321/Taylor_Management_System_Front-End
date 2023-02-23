@@ -16,6 +16,7 @@ import { ProductViewDetailsComponent } from './product-view-details/product-view
 import { BuyProductComponent } from './buy-product/buy-product.component';
 import { BuyProductResolverService } from './_services/buy-product-resolver.service';
 import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
+import { CartComponent } from './cart/cart.component';
 
 
 const routes: Routes = [
@@ -41,6 +42,7 @@ const routes: Routes = [
   },
   { path: 'productViewDetails', component: ProductViewDetailsComponent, resolve: { product: ProductResolverService } },
   { path: 'orderConfirm', component: OrderConfirmationComponent, canActivate: [AuthGuard], data: { roles: ['USER'] } },
+  { path: 'cart', component: CartComponent, canActivate: [AuthGuard], data: { roles: ['USER'] } },
 ];
 
 @NgModule({

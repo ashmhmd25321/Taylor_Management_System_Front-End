@@ -31,8 +31,6 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/admin']);
         } else if (role === 'USER'){
           this.router.navigate(['/']);
-        } else if (role === 'TAYLOR'){
-          this.router.navigate(['/taylor'])
         }
       },
       (error: any) => {

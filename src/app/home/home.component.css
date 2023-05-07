@@ -18,3 +18,16 @@ mat-grid-tile {
     position: relative;
     height: 300px;
 }
+
+.container {
+    background-color: #ADD8E6;
+    padding: 50px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+}
+h1 {
+    font-size: 36px;
+    margin-bottom: 30px;
+}

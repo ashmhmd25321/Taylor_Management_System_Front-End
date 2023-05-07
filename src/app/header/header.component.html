@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
     <span>
-        TAYLOR MANAGEMENT APPLICATION
+        DEPRESSION CLASSIFICATION APPLICATION
     </span>
 
     <span class="space-buttons"></span>
@@ -15,12 +15,12 @@
 <mat-toolbar color="primary" *ngIf="isLoggedIn()" style="margin-top: 2px;">
     <a class="a" color="primary" routerLink="/" style="margin-right: 10px;">Home</a>
     <span *ngIf="isUser()" style="margin-right: 10px;"> | </span>
-    <a class="a" *ngIf="isUser()" color="primary" routerLink="/cart" style="margin-right: 10px;">Cart</a>
-    <span *ngIf="isAdmin()" style="margin-right: 10px;"> | </span>
-    <a class="a" *ngIf="isAdmin()" color="primary" routerLink="/admin" style="margin-right: 10px;">Admin
-        Page</a>
-    <span *ngIf="isAdmin()" style="margin-right: 10px;"> | </span>
-    <a class="a" *ngIf="isAdmin()" color="primary" routerLink="/addNewProduct">Add New Product</a>
-    <span *ngIf="isAdmin()" style="margin-right: 10px; margin-left: 10px;"> | </span>
-    <a class="a" *ngIf="isAdmin()" color="primary" routerLink="/showProductDetails">Show Product Details</a>
+    <a class="a" *ngIf="isUser()" color="primary" href="http://127.0.0.1:5000/" style="margin-right: 10px;">Predict Depression</a>
+    <!-- <span *ngIf="isAdmin()" style="margin-right: 10px;"> | </span>
+    <a class="a" *ngIf="isAdmin()" color="primary" routerLink="/nodepression">View All Orders</a> -->
+    <span *ngIf="isUser()" style="margin-right: 10px;"> | </span>
+    <span *ngIf="isUser()" style="margin-right: 10px;">Do you have depression?</span>
+
+    <a class="a" *ngIf="isUser()" color="primary" routerLink="/depression" style="margin-right: 10px;">Yes</a>
+    <a class="a" *ngIf="isUser()" color="primary" routerLink="/nodepression" style="margin-right: 10px;">No</a>
 </mat-toolbar>

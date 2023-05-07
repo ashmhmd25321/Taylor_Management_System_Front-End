@@ -1,47 +1,16 @@
-<div class="container mt-5">
+<div class="container mt-5" style="background-color: #ADD8E6;">
 
-    <div class="text-center">
-        <mat-form-field class="w-50" appearance="outline">
-            <mat-label>Search Products</mat-label>
-            <input #searchKeyword (keyup)="searchByKeyword(searchKeyword.value)" matInput placeholder="Search Any Product" name="searchKey" id="searchKey">
-            <mat-icon matSuffix>search</mat-icon>
-        </mat-form-field>
-    </div>
+    <h1>About Depression</h1>
 
+    <img width="500" height="300" style="margin-bottom: 10px;" src="https://images.unsplash.com/photo-1476782916354-326ab24c93df?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1167&q=80" alt="Depression image">
 
-    <mat-grid-list cols="4" rowHeight="2:3" gutterSize="5">
-        <mat-grid-tile *ngFor="let p of productDetails">
-            <div class="row p-5">
-                <div class="image-container">
-                    <img class="home-page-product" [src]="p.productImages[0].url" alt="">
-                </div>
-                <div>
-                    <p style="margin-top: 3px;">
-                        <b>{{p.productName}}</b> &nbsp;
-                        <b
-                            style="text-transform: uppercase; color: brown; text-decoration: underline overline;">{{p.productStatus}}</b>
-                    </p>
-                </div>
-                <div>
-                    <p
-                        style="white-space: inherit; text-overflow: ellipsis; height: 40px; width: 288; overflow: hidden;">
-                        {{p.productDescription}}</p>
-                </div>
-                <div>
-                    <p><b>Price: {{p.discountedPrice}}$ </b> &nbsp; <b style="text-decoration: line-through;">
-                            {{p.productPrice}}$</b></p>
-                </div>
-                <div>
-                    <button mat-raised-button color="accent" type="button"
-                        (click)="showProductDetails(p.productId)">View
-                        Details</button>
-                </div>
-            </div>
-        </mat-grid-tile>
-    </mat-grid-list>
+    <p>Depression is a mental health disorder that causes feelings of sadness, hopelessness, and worthlessness. It can also cause physical symptoms such as fatigue, changes in appetite, and sleep disturbances. Depression affects millions of people around the world and can be a debilitating condition if left untreated.
 
-    <div class="text-center mt-5" style="padding-bottom: 80px;" *ngIf="showLoadButton">
-        <button mat-raised-button color="primary" type="button" (click)="loadMoreProduct()"> Load More
-            <mat-icon>arrow_downward</mat-icon></button>
-    </div>
-</div>
+        There are several different types of depression, including major depressive disorder, persistent depressive disorder, and seasonal affective disorder. Each type has its own set of symptoms and treatment options.
+        
+        Risk factors for depression include a family history of the condition, major life changes such as a divorce or the death of a loved one, and certain medical conditions such as chronic pain or thyroid disorders. Substance abuse can also contribute to the development of depression.
+        
+        Treatment for depression typically involves a combination of therapy and medication. Cognitive-behavioral therapy (CBT) is a common type of therapy that helps individuals identify and change negative patterns of thinking and behavior. Medications such as selective serotonin reuptake inhibitors (SSRIs) and tricyclic antidepressants (TCAs) can also be effective in treating depression.
+        
+        If you or someone you know is struggling with depression, it's important to seek professional help. Depression is a treatable condition, and with the right treatment, individuals can experience significant improvements in their symptoms and overall quality of life.</p>
+  </div>

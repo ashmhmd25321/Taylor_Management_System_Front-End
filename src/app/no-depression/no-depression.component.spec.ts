@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TaylorComponent } from './taylor.component';
+import { NoDepressionComponent } from './no-depression.component';
 
-describe('TaylorComponent', () => {
-  let component: TaylorComponent;
-  let fixture: ComponentFixture<TaylorComponent>;
+describe('NoDepressionComponent', () => {
+  let component: NoDepressionComponent;
+  let fixture: ComponentFixture<NoDepressionComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TaylorComponent ]
+      declarations: [ NoDepressionComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TaylorComponent);
+    fixture = TestBed.createComponent(NoDepressionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
